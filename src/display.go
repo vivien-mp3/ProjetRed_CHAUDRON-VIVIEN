@@ -13,7 +13,7 @@ func DisplayDialogue(icon string, t string, m string) {
 	fmt.Printf("|[ %s ]| -- %s o--> \n\t<< %s >>\n", icons[icon], t, m)
 }
 
-// Ici est la fonction pour les dialogues
+// Ici est la fonction pour la narration, m = le message
 func DisplayNarration(m string){
 	fmt.Println("[{(--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--)}]\n")
 	fmt.Printf("\t[[ %s ]]\n", m)
