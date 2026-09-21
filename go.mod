@@ -34,12 +34,7 @@ require (
 	golang.org/x/exp v0.0.0-20220909182711-5c715a9e8561 // indirect
 	golang.org/x/image v0.0.0-20190227222117-0694c2d4d067 // indirect
 	golang.org/x/mobile v0.0.0-20190415191353-3e0bab5405d6 // indirect
-<<<<<<< HEAD
 	golang.org/x/sync v0.21.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
 	golang.org/x/text v0.3.8 // indirect
 )
-=======
-	golang.org/x/sys v0.0.0-20190626150813-e07cf5db2756 // indirect
-)
->>>>>>> 3f8f6e5a6b85f7f7ebdef0950b8f24a64eb65212

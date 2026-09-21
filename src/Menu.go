@@ -6,6 +6,7 @@ package src
 	import (
 		"fmt"
 		"os"
+		
 	)
 
 	func StartMenu(){
@@ -30,7 +31,7 @@ package src
 			result = false
 			os.Exit(0)
 		default :
-		fmt.Println("Oups tromper de touche\n")
+		fmt.Println("Oups tromper de touche")
 		}		
 	}	
 }

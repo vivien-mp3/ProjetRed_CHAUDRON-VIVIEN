@@ -33,7 +33,7 @@ var Bug bool
 func (a *Character) InitCharacter(name string, types string) {
 	a.NAME = name
 	types = strings.ToLower(types)
-	if types == "1" || types == "humain" {
+	if types == "0" || types == "humain" {
 		a.TYPE = "humain"
 		a.PVMAX = 100
 		a.PV = a.PVMAX / 2
@@ -41,7 +41,7 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.DEF = 2
 		a.PRMAX = 100
 		a.PR = 0
-	} else if types == "2" || types == "chartaceus" {
+	} else if types == "1" || types == "chartaceus" {
 		a.TYPE = "chartaceus"
 		a.PVMAX = 90
 		a.PV = a.PVMAX / 2
@@ -49,7 +49,7 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.DEF = 1
 		a.PRMAX = 150
 		a.PR = 0
-	} else if types == "3" || types == "plantyrien" {
+	} else if types == "2" || types == "plantyrien" {
 		a.TYPE = "plantyrien"
 		a.PVMAX = 120
 		a.PV = a.PVMAX / 2

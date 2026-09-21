@@ -3,6 +3,8 @@ package src
 import (
 	"fmt"
 	"os"
+	"projet/src/common"
+
 	tea "charm.land/bubbletea/v2"
 )
 
@@ -94,13 +96,16 @@ func (m model) View() tea.View {
     return tea.NewView(s)
 }
 
-func StartChoice(table []string) int {
+func StartChoice(table []string, inventoryAccess bool) int {
 	finalPick = 0
+	if inventoryAccess {
+		table = append(table, "accédez à l'inventaire.")
+	}
 	p := tea.NewProgram(initModel(table))
     if _, err := p.Run(); err != nil {
         fmt.Printf("Alas, there's been an error: %v", err)
         os.Exit(1)
     }
-	fmt.Println(finalPick)
+	go common.PlaySFX("valid")
 	return finalPick
 }
