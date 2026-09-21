@@ -1,6 +1,19 @@
 package src
 
-//struct avec tous les caractères des personnages
+/*
+La commande pour afficher les stats du personnage est la suivante
+var test src.Character
+	test.InitCharacter("NOOB", "1")
+	fmt.Println(test)
+	vous pouvez remplacer le "test" par le nom de la variable de votre choix
+*/
+
+import (
+	"fmt"
+	"strings"
+)
+
+// struct avec tous les caractères des personnages
 type Character struct {
 	NAME  string
 	TYPE  string
@@ -13,9 +26,13 @@ type Character struct {
 	INV   map[string]int
 }
 
-//défini les stats du personnage correspondant au personnage choisi, choix possible avec le nom ou le numéro du personnage
+// défini la variable Bug pour le cas ou le personnage sélectionné n'existe pas
+var Bug bool
+
+// défini les stats du personnage correspondant au personnage choisi, choix possible avec le nom ou le numéro du personnage
 func (a *Character) InitCharacter(name string, types string) {
 	a.NAME = name
+	types = strings.ToLower(types)
 	if types == "1" || types == "humain" {
 		a.TYPE = "humain"
 		a.PVMAX = 100
@@ -24,8 +41,7 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.DEF = 2
 		a.PRMAX = 100
 		a.PR = 0
-	}
-	if types == "2" || types == "chartaceus" {
+	} else if types == "2" || types == "chartaceus" {
 		a.TYPE = "chartaceus"
 		a.PVMAX = 90
 		a.PV = a.PVMAX / 2
@@ -33,8 +49,7 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.DEF = 1
 		a.PRMAX = 150
 		a.PR = 0
-	}
-	if types == "3" || types == "plantyrien" {
+	} else if types == "3" || types == "plantyrien" {
 		a.TYPE = "plantyrien"
 		a.PVMAX = 120
 		a.PV = a.PVMAX / 2
@@ -42,5 +57,8 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.DEF = 3
 		a.PRMAX = 50
 		a.PR = 0
+	} else {
+		fmt.Println("Erreur de saisi pour le Type de personnage, veuillez saisir le numéro du Type de personnage ou sont nom complet sans erreur de frappe")
+		Bug = true
 	}
 }
