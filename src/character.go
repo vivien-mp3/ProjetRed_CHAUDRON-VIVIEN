@@ -1,16 +1,9 @@
 package src
 
-/*
-La commande pour afficher les stats du personnage est la suivante
-var test src.Character
-	test.InitCharacter("NOOB", "1")
-	fmt.Println(test)
-	vous pouvez remplacer le "test" par le nom de la variable de votre choix
-*/
-
 import (
 	"fmt"
 	"strings"
+	"time"
 )
 
 // struct avec tous les caractères des personnages
@@ -58,7 +51,38 @@ func (a *Character) InitCharacter(name string, types string) {
 		a.PRMAX = 50
 		a.PR = 0
 	} else {
-		fmt.Println("Erreur de saisi pour le Type de personnage, veuillez saisir le numéro du Type de personnage ou sont nom complet sans erreur de frappe")
+		fmt.Println("\nErreur de saisi pour le Type de personnage, veuillez saisir le numéro du Type de personnage ou sont nom complet sans erreur de frappe")
 		Bug = true
 	}
+}
+
+/*
+J'utilise la commande fmt.Scanln() afin de saisir les infos nécessaire pour le personnage
+*/
+
+// définition des variable qui possèderont les infos a saisir
+var TypeSaisi string = "debug"
+var NomSaisi string = "debug"
+var test Character
+
+func SaisiInfo() {
+	for {
+		// choix du type de personnage
+		fmt.Println("\nVeuillez Saisir le type de personnage entre les différents proposé :")
+		fmt.Println("1 - Humain || 2 - chartaceus || 3 - plantyrien")
+		fmt.Scanln(&TypeSaisi)
+		test.InitCharacter(NomSaisi, TypeSaisi)
+		if Bug == true {
+			Bug = false
+			time.Sleep(2 * time.Second)
+			continue
+		} else {
+			break
+		}
+	}
+	//choix du nom du personnage
+	time.Sleep(1 * time.Second)
+	fmt.Println("\nVeuillez Saisir le nom de votre personnage entre les différents proposé :")
+	fmt.Scanln(&NomSaisi)
+	fmt.Println("\nLe nom de votre personnage est : ", NomSaisi, "\n")
 }
