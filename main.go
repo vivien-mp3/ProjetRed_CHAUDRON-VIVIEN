@@ -9,7 +9,9 @@ type character struct {
 }
 
 func main() {
-
+	//permet initialiser le menu
+	src.StartMenu()
+	// permet de lancer la narration 
 	src.DisplayDialogue("chat", "Le chat", "Je suis le meow")
 	src.DisplayDialogue("joueur", "Le joueur", "Oe oe oe !")
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
