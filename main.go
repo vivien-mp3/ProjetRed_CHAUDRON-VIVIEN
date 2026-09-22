@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"projet/src"
+	//"fmt"
+	//"projet/src"
+	"projet/src/battle"
 	"projet/src/common"
 	"projet/src/player"
 	chrfol "projet/src/player"
@@ -15,7 +16,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	src.Startmenu()
+	//src.Startmenu()
 	//requete pour le personnage
 	player.AddInventory("épée")
 	player.AddInventory("couteau")
@@ -24,14 +25,15 @@ func main() {
 	player.SupInventory("épée")
 	player.SupInventory("couteau")
 	player.AccesInventory()
-	var Test *string
-	fmt.Scanln(&Test)
 	plrName := chrfol.EnterName()
 	plrType := chrfol.EnterType()
 	
 	//information sur le personnage
 	var plr chrfol.Character
 	plr.InitCharacter(plrName, plrType)
+
+	var dummy battle.AI
+	battle.StartBattle(&plr, dummy, "dummy", 100, 10)
 
 	// permet de lancer la narration
 	common.DisplayInfo(plr.NAME, plr.TYPE, plr.PVMAX, plr.PV, plr.ATK, plr.DEF)
@@ -42,5 +44,5 @@ func main() {
 	time.Sleep(1 * time.Second)
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
-	src.Carte()
+	//src.Carte()
 }

@@ -19,25 +19,24 @@ type AI struct{
 var dummy AI
 
 
-func (e *AI) initEnemy(n string, p int, a int) {
+func (e *AI) initEnemy(n string, h int, a int) {
 	e.name = n
-	e.pvmax = p
+	e.pvmax = h
 	e.pv = e.pvmax
 	e.atk = a
 }
 
-func setUpEnemies() {
-	dummy.initEnemy("dummy", 100, 5)
+func setUpEnemies(e AI, n string, h int, a int) {
+	e.initEnemy(n, h, a)
 }
 
-func StartBattle(e AI, p *player.Character) {
-	setUpEnemies()
-
+func StartBattle(p *player.Character, e AI, n string, h int, a int) {
+	setUpEnemies(e, n, h, a)
 	e.battle(p)
 }
 
 func (e *AI) battle(p *player.Character) {
-	for true {fv,
+	for true {
 		playerTurn := bubble.StartChoice([]string{"Attaquer.", "Défendre."}, true)
 		plrDefTurn := 0
 		switch playerTurn{
@@ -53,6 +52,10 @@ func (e *AI) battle(p *player.Character) {
 			p.PV -= e.atk - plrDefTurn
 		}
 		
-		fmt.Println(e.atk, plrDefTurn, p.PV)
+		fmt.Println(e.pv, e.atk, plrDefTurn, p.PV)
+
+		if p.PV <= 0 || e.pv <= 0 {
+			return
+		}
 	}
 }
