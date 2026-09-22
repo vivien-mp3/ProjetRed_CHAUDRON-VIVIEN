@@ -2,7 +2,7 @@ package main
 
 import (
 	//"fmt"
-	//"projet/src"
+	"projet/src"
 	"projet/src/battle"
 	"projet/src/common"
 	"projet/src/player"
@@ -44,5 +44,6 @@ func main() {
 	time.Sleep(1 * time.Second)
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
-	//src.Carte()
+	src.Carte()
+	src.Cartegauche()
 }
