@@ -104,3 +104,4 @@ func StartChoice(table []string) int {
 	fmt.Println(finalPick)
 	return finalPick
 }
+

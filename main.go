@@ -14,7 +14,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	src.StartMenu()
+	src.StartMenu() 
 	//choix du type de personnage
 	fmt.Println("Veuillez Saisir le type de personnage entre les différents proposé :")
 	fmt.Println("1 - Humain || 2 - chartaceus || 3 - plantyrien")
@@ -37,4 +37,5 @@ func main() {
 	src.DisplayDialogue("joueur", "Le joueur", "Oe oe oe !")
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	src.DisplayNarration(mess)
+	src.Carte()
 }
