@@ -4,6 +4,7 @@ package src
 import (
 	"fmt"
 	"os"
+	"projet/src/bubble"
 )
 
 func Startmenu() {
@@ -17,20 +18,17 @@ func Startmenu() {
 		fmt.Println("╚══════════════════════════════╝")
 		fmt.Println("\033[0m")
 		fmt.Println("Bienvenue dans le jeu!")
-		fmt.Println("1 : Commencer une nouvelle partie")
-		fmt.Println("2 : Charger une partie")
-		fmt.Println("3 : Quitter le jeu")
-		fmt.Print("Veuillez entrer votre choix (1, 2 ou 3) : ")
-		fmt.Scanln(&choice)
+		options := []string{"Commencer une nouvelle partie", "Parametre", "Quitter le jeu"}
+		choice = bubble.StartChoice(options, false)
 
 		switch choice {
 
-		case 1:
+		case 0:
 			fmt.Println("Nouvelle partie commencée !")
 			result = false
-		case 2:
+		case 1:
 			fmt.Println("Parametre")
-		case 3:
+		case 2:
 			fmt.Println("Vous avez quittez le jeu")
 			result = false
 			os.Exit(0)

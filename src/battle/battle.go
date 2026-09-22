@@ -37,7 +37,7 @@ func StartBattle(e AI, p *player.Character) {
 }
 
 func (e *AI) battle(p *player.Character) {
-	for true {fv,
+	for true {
 		playerTurn := bubble.StartChoice([]string{"Attaquer.", "Défendre."}, true)
 		plrDefTurn := 0
 		switch playerTurn{
