@@ -16,7 +16,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	//src.Startmenu()
+	src.Startmenu()
 	//requete pour le personnage
 	player.AddInventory("épée")
 	player.AddInventory("couteau")
@@ -42,6 +42,5 @@ func main() {
 	time.Sleep(1 * time.Second)
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
-	src.Carte()
-	src.Cartegauche()
+	src.Carte(&plr)
 }
