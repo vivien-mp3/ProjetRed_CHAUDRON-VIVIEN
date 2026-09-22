@@ -5,6 +5,7 @@ import (
 	"os"
 	"projet/src/common"
 
+    "github.com/charmbracelet/bubbles/textinput"
 	tea "charm.land/bubbletea/v2"
 )
 
@@ -14,6 +15,10 @@ type model struct{
 	choices []string
 	cursor int
 	selected map[int]struct{}
+}
+
+type nameInput struct{
+    input textinput.Model
 }
 
 func initModel(table []string) model {
@@ -61,13 +66,19 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
             }
 			finalPick = m.cursor
 			return m, tea.Quit
+
+		case "esc":
+			os.Exit(0)
         }
+		 
+
     }
 
     // Return the updated model to the Bubble Tea runtime for processing.
     // Note that we're not returning a command.
     return m, nil
 }
+
 
 func (m model) View() tea.View {
     // The header
