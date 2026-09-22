@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"projet/src"
-	chrfol "projet/src/character"
 	"projet/src/common"
+	"projet/src/player"
+	chrfol "projet/src/player"
 	"time"
 )
 
@@ -16,6 +17,13 @@ func main() {
 	//permet initialiser le menu
 	//src.StartMenu()
 	//requete pour le personnage
+	player.AddInventory("épée")
+	player.AddInventory("couteau")
+	player.AddInventory("épée")
+	player.AccesInventory()
+	player.SupInventory("épée")
+	player.SupInventory("couteau")
+	player.AccesInventory()
 	var Test *string
 	fmt.Scanln(&Test)
 	plrName := chrfol.EnterName()
