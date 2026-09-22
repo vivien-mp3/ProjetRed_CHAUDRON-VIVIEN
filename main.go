@@ -43,4 +43,5 @@ func main() {
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
 	src.Carte()
+	src.Cartegauche()
 }
