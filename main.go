@@ -14,7 +14,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	src.StartMenu() 
+	src.Startmenu() 
 	//choix du type de personnage
 	fmt.Println("Veuillez Saisir le type de personnage entre les différents proposé :")
 	fmt.Println("1 - Humain || 2 - chartaceus || 3 - plantyrien")

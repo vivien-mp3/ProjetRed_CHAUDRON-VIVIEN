@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func StartMenu() {
+func Startmenu() {
 	//code permetant d'arriver sur le jeu .
 	var choice int
 
