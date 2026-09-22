@@ -115,3 +115,4 @@ func StartChoice(table []string, inventoryAccess bool) int {
 	go common.PlaySFX("valid")
 	return finalPick
 }
+
