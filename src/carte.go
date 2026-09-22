@@ -35,8 +35,8 @@ func Carte() {
 
 func Cartegauche(){
 
-	fmt.Println("Arriver au village vous croisser un garde\n")
-	fmt.Println("Garde : Alte inconnue , que vaut votre présence dans ce village\n")
+	fmt.Println("Arriver au village vous croisser un garde")
+	fmt.Println("Garde : Alte inconnue , que vaut votre présence dans ce village")
 	fmt.Println("[*name] Je recherche un endroit ou passer la nuit")
 	fmt.Println("Garde : Vous avez une auberge au fond, ils vont vous accueillir !")
 
