@@ -40,7 +40,7 @@ func Carte(p *player.Character) {
 func Cartegauche(p *player.Character) {
 
 	
-	fmt.Println("Arriver au village vous croisser un garde\n")
+	fmt.Println("Arriver au village vous croisser un garde")
 
 	fmt.Println("\033[1;32m")
 	fmt.Println("Garde : Alte inconnue , que vaut votre présence dans ce village")
