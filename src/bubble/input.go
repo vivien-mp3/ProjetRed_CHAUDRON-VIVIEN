@@ -3,7 +3,7 @@ package bubble
 import (
 	//"fmt"
 	//"os"
-	"fmt"
+
 	"log"
 	"projet/src/common"
 
@@ -15,12 +15,11 @@ import (
 var mess string
 var playerInput string
 
-type nameInput struct{
-    textInput textinput.Model
+type nameInput struct {
+	textInput textinput.Model
 	err       error
 	quitting  bool
 }
-
 
 func initInput() nameInput {
 	ti := textinput.New()
@@ -50,7 +49,7 @@ func (m nameInput) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		default:
 			playerInput += msg.String()
 		}
-		
+
 	}
 
 	m.textInput, cmd = m.textInput.Update(msg)
@@ -82,7 +81,6 @@ func StartInput(s string) string {
 	if _, err := p.Run(); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(p)
 	return playerInput
 }
 
