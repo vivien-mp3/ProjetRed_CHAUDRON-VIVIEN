@@ -1,8 +1,8 @@
-package src
+package character
 
 import (
 	"fmt"
-	"projet/src"
+	"projet/src/bubble"
 	"projet/src/common"
 )
 
@@ -64,10 +64,9 @@ var test Character
 
 func EnterName() string {
 	for true {
-		NomSaisi = ""
+		
 		fmt.Println("\nVeuillez Saisir votre nom:")
-		fmt.Print("\tJe m'appelle....\t")
-		fmt.Scanln(&NomSaisi)
+		NomSaisi = bubble.StartInput("\tJe m'appelle....\t")
 		fmt.Println("\nVotre nom est donc: ", NomSaisi, "\n")
 
 		return NomSaisi
@@ -78,7 +77,7 @@ func EnterName() string {
 func EnterType() int {
 	common.DisplayNarration(("Bienvenue à bord de votre vaisseau " + NomSaisi + ". Vous êtes entré(e) dans un monde où nul à de logique."))
 
-		TypeSaisi := src.StartChoice([]string{"Humain.[Personnage par défaut, rien de spécial.]", 
+		TypeSaisi := bubble.StartChoice([]string{"Humain.[Personnage par défaut, rien de spécial.]", 
 		"Chartaceus.[Un Homme-papier, faible mais coupe plus facilment.]",
 		"Plantyrien.[Une plante qui aspire les nutriments d'autrui. Peut survivre plus longtemps.]",}, false)
 

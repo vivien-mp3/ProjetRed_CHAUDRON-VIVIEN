@@ -1,11 +1,10 @@
-package src
+package bubble
 
 import (
 	"fmt"
 	"os"
 	"projet/src/common"
 
-    "github.com/charmbracelet/bubbles/textinput"
 	tea "charm.land/bubbletea/v2"
 )
 
@@ -15,10 +14,6 @@ type model struct{
 	choices []string
 	cursor int
 	selected map[int]struct{}
-}
-
-type nameInput struct{
-    input textinput.Model
 }
 
 func initModel(table []string) model {
