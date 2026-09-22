@@ -1,36 +1,30 @@
 package src
+
 import (
-	"fmt" 
-	"os"
+	"fmt"
+	"projet/src/bubble"
 )
-	type carte struct{
-	NAME  string
-	Description  string
-	Evenement  int
-	Lieux bool
-	}
-func Carte(){
-	var Chemin int
 
-	fmt.Println("Quel chemin allez-vous emprunter ?\n")
-	fmt.Println("1 : Gauche ")
-	fmt.Println("2 : Doitre")
-	fmt.Scanln(&Chemin)
+type CarteStruct struct {
+	NAME        string
+	Description string
+	Evenement   int
+	Lieux       bool
+}
 
-	for result := true; result; {
-	switch Chemin {
-		case 1:
-			fmt.Println("Vous avez choisie de tourner  gauche \n")
-			fmt.Println("NAME : TEST \n")
-			fmt.Println("Description : Vous arriver dans un endroit sombre et mysterieux\n ")
-			result = false
+func Carte() {
+	// 1. On définit les options proposées au joueur
+	options := []string{"Gauche", "Droite"}
 
-		case 2 :
-			fmt.Println("Vous avez choisie de tourner à droite \n")
+	// 2. On lance le menu interactif Bubble Tea (flèches + Entrée)
+	// Le 2e argument (false) indique si on veut afficher l'option inventaire ou non
+	choix := bubble.StartChoice(options, false)
 
-		default:
-			fmt.Println("La direction sellectioner est inconnue")
-			os.Exit(0)
-		}
+	// 3. On traite le choix selon l'index retourné (0 = Gauche, 1 = Droite)
+	switch choix {
+	case 0:
+		fmt.Println("Vous avez choisi d'aller à gauche.")
+	case 1:
+		fmt.Println("Vous avez choisi d'aller à droite.")
 	}
 }
