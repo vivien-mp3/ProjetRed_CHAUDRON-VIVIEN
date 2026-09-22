@@ -25,10 +25,10 @@ func DisplayNarration(m string){
 }
 
 func DisplayInfo(name string, t string, pvmax int, pv int, atk int, def int) {
-	fmt.Println("[{(______________________________________________________________________________________)}]")
+	fmt.Println("[{(______________________________________________________________________________________)}]\n")
 	fmt.Printf("\t NOM DU JOUEUR: %s\n\tTYPE DU JOUEUR: %s\n", name, t)
-	fmt.Println("[{(=======================================)}]")
+	fmt.Println("[{(=======================================)}]\n")
 	fmt.Printf("\t POINTS DE VIES: %d / %d\n", pv, pvmax)
-	fmt.Println("[{(=======================================)}]")
+	fmt.Println("[{(=======================================)}]\n")
 	fmt.Printf("\t POINTS D'ATTAQUE: %d\t POINT DE DEFENSE: %d\n", atk, def)
 }

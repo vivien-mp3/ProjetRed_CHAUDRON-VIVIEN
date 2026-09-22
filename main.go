@@ -14,7 +14,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	//src.StartMenu()
+	src.Startmenu()
 	//requete pour le personnage
 	var Test *string
 	fmt.Scanln(&Test)

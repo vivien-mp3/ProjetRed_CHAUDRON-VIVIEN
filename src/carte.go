@@ -13,18 +13,27 @@ type CarteStruct struct {
 }
 
 func Carte() {
-	// 1. On définit les options proposées au joueur
+	var position int
+
+	
 	options := []string{"Gauche", "Droite"}
 
-	// 2. On lance le menu interactif Bubble Tea (flèches + Entrée)
-	// Le 2e argument (false) indique si on veut afficher l'option inventaire ou non
 	choix := bubble.StartChoice(options, false)
-
-	// 3. On traite le choix selon l'index retourné (0 = Gauche, 1 = Droite)
 	switch choix {
-	case 0:
-		fmt.Println("Vous avez choisi d'aller à gauche.")
-	case 1:
-		fmt.Println("Vous avez choisi d'aller à droite.")
+	case 0 :
+		if position > 0 {
+			position--
+			fmt.Println("\033[1;35m")
+			fmt.Println("Vous avez choisi d'aller à gauche.")
+			fmt.Println("Vous appercevez une lumiere , un sorte village.")
+			fmt.Println("\033[0m")
+		}
+		case 1:
+		if position < -1{
+				position++
+			fmt.Println("\033[1;35m")
+			fmt.Println("Vous avez choisi d'aller à droite.")
+			fmt.Println("\033[0m")
+		}
 	}
 }
