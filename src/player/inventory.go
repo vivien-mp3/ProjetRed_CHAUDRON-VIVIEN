@@ -10,17 +10,23 @@ import (
 var ListInv []string
 var ItemPro string
 var INV = make(map[string]int)
+var temp []string
 
 func AccesInventory() {
 	for key, value := range INV {
 		ItemPro = key + " x" + strconv.Itoa(value)
+		temp = append(temp, key)
 		ListInv = append(ListInv, ItemPro)
 	}
 	selec := bubble.StartChoice(ListInv, false)
-	ListInv = nil
-	switch selec {
-		
+	for a := 0; a < len(ListInv); a++ {
+		if selec == a {
+			objet := temp[a]
+			SupInventory(objet)
+		}
 	}
+	ListInv = nil
+	temp = nil
 }
 
 func AddInventory(objet string) {

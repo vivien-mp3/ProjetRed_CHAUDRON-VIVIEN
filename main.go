@@ -22,12 +22,10 @@ func main() {
 	player.AddInventory("couteau")
 	player.AddInventory("épée")
 	player.AccesInventory()
-	player.SupInventory("épée")
-	player.SupInventory("couteau")
 	player.AccesInventory()
 	plrName := chrfol.EnterName()
 	plrType := chrfol.EnterType()
-	
+
 	//information sur le personnage
 	var plr chrfol.Character
 	plr.InitCharacter(plrName, plrType)
