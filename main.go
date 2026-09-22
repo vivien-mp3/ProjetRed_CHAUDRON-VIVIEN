@@ -15,7 +15,7 @@ type character struct {
 
 func main() {
 	//permet initialiser le menu
-	//src.StartMenu()
+	src.Startmenu()
 	//requete pour le personnage
 	player.AddInventory("épée")
 	player.AddInventory("couteau")
@@ -28,9 +28,11 @@ func main() {
 	fmt.Scanln(&Test)
 	plrName := chrfol.EnterName()
 	plrType := chrfol.EnterType()
+	
 	//information sur le personnage
 	var plr chrfol.Character
 	plr.InitCharacter(plrName, plrType)
+
 	// permet de lancer la narration
 	common.DisplayInfo(plr.NAME, plr.TYPE, plr.PVMAX, plr.PV, plr.ATK, plr.DEF)
 	time.Sleep(1 * time.Second)
