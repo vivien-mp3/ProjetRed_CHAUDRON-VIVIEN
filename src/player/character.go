@@ -4,19 +4,21 @@ import (
 	"fmt"
 	"projet/src/bubble"
 	"projet/src/common"
+	"strings"
 )
 
 // struct avec tous les caractères des personnages
 type Character struct {
-	NAME  string
-	TYPE  string
-	PVMAX int
-	PV    int
-	ATK   int
-	DEF   int
-	PRMAX int
-	PR    int
-	INV   map[string]int
+	NAME    string
+	TYPE    string
+	PVMAX   int
+	PV      int
+	ATK     int
+	DEF     int
+	PRMAX   int
+	PR      int
+	INV     map[string]int
+	MONNAIE int
 }
 
 // défini les stats du personnage correspondant au personnage choisi, choix possible avec le nom ou le numéro du personnage
@@ -60,14 +62,22 @@ J'utilise la commande fmt.Scanln() afin de saisir les infos nécessaire pour le 
 var TypeSaisi int = 0
 var NomSaisi string
 var test Character
+var NomSaisin string
 
 func EnterName() string {
 	for true {
 
 		fmt.Println("\nVeuillez Saisir votre nom:")
-		NomSaisi = bubble.StartInput("\tJe m'appelle....\t")
+		NomSaisin = bubble.StartInput("\tJe m'appelle....\t")
+		NomSaisin = strings.ToLower(NomSaisin)
+		for abcdef := 0; abcdef < len(NomSaisin); abcdef++ {
+			if abcdef == 0 {
+				NomSaisi += string(rune(NomSaisin[0] - 32))
+			} else {
+				NomSaisi += string(NomSaisin[abcdef])
+			}
+		}
 		fmt.Println("\nVotre nom est donc: ", NomSaisi)
-
 		return NomSaisi
 	}
 	return NomSaisi
