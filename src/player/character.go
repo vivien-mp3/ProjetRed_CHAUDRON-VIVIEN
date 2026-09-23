@@ -33,6 +33,7 @@ func (a *Character) InitCharacter(name string, types int) {
 		a.DEF = 2
 		a.PRMAX = 100
 		a.PR = 0
+		a.MONNAIE = 100
 	case 1:
 		a.TYPE = "chartaceus"
 		a.PVMAX = 90
@@ -41,6 +42,7 @@ func (a *Character) InitCharacter(name string, types int) {
 		a.DEF = 1
 		a.PRMAX = 150
 		a.PR = 0
+		a.MONNAIE = 100
 	case 2:
 		a.TYPE = "plantyrien"
 		a.PVMAX = 120
@@ -49,6 +51,7 @@ func (a *Character) InitCharacter(name string, types int) {
 		a.DEF = 3
 		a.PRMAX = 50
 		a.PR = 0
+		a.MONNAIE = 100
 	default:
 		fmt.Println("\nErreur de saisi pour le Type de personnage, veuillez saisir le numéro du Type de personnage ou sont nom complet sans erreur de frappe")
 	}

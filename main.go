@@ -34,7 +34,7 @@ func main() {
 	battle.StartBattle(&plr, dummy, "dummy", 100, 10)
 
 	// permet de lancer la narration
-	common.DisplayInfo(plr.NAME, plr.TYPE, plr.PVMAX, plr.PV, plr.ATK, plr.DEF)
+	common.DisplayInfo(plr.NAME, plr.TYPE, plr.PVMAX, plr.PV, plr.ATK, plr.DEF, plr.MONNAIE)
 	time.Sleep(1 * time.Second)
 	common.DisplayDialogue("chat", "Le chat", "Je suis le meow")
 	time.Sleep(2 * time.Second)
@@ -42,5 +42,5 @@ func main() {
 	time.Sleep(1 * time.Second)
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
-	src.Carte(&plr)
+	//src.Carte(&plr)
 }
