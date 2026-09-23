@@ -5,6 +5,7 @@ import (
 	"projet/src/bubble"
 	"projet/src/common"
 	"strings"
+	"unicode"
 )
 
 // struct avec tous les caractères des personnages
@@ -57,33 +58,35 @@ func (a *Character) InitCharacter(name string, types int) {
 	}
 }
 
-/*
-J'utilise la commande fmt.Scanln() afin de saisir les infos nécessaire pour le personnage
-*/
-
 // définition des variable qui possèderont les infos a saisir
 var TypeSaisi int = 0
 var NomSaisi string
 var test Character
-var NomSaisin string
 
 func EnterName() string {
-	for true {
-
+	NomSaisi = ""
+	for {
 		fmt.Println("\nVeuillez Saisir votre nom:")
-		NomSaisin = bubble.StartInput("\tJe m'appelle....\t")
-		NomSaisin = strings.ToLower(NomSaisin)
-		for abcdef := 0; abcdef < len(NomSaisin); abcdef++ {
-			if abcdef == 0 {
-				NomSaisi += string(rune(NomSaisin[0] - 32))
-			} else {
-				NomSaisi += string(NomSaisin[abcdef])
+		NomSaisi = bubble.StartInput("\tJe m'appelle....\t")
+		NomSaisi = strings.TrimSpace(NomSaisi)
+		if VerifName(NomSaisi) == true {
+			ValideNom := strings.Title(strings.ToLower(NomSaisi))
+			return ValideNom
+		}
+	}
+}
+
+func VerifName(s string) bool {
+	if len(s) == 0 {
+		return false
+	} else {
+		for _, a := range s {
+			if !unicode.IsLetter(a) {
+				return false
 			}
 		}
-		fmt.Println("\nVotre nom est donc: ", NomSaisi)
-		return NomSaisi
 	}
-	return NomSaisi
+	return true
 }
 
 func EnterType() int {
