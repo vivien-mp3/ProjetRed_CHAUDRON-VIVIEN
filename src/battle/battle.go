@@ -2,12 +2,15 @@ package battle
 
 import (
 	"fmt"
+	"projet/src"
 	"projet/src/bubble"
+	"projet/src/common"
 	"projet/src/player"
 )
 
 var chr player.Character
 
+var lives int = 1
 
 type AI struct{
 	name string
@@ -26,25 +29,54 @@ func (e *AI) initEnemy(n string, h int, a int) {
 	e.atk = a
 }
 
-func setUpEnemies(e AI, n string, h int, a int) {
-	e.initEnemy(n, h, a)
-}
 
 func StartBattle(p *player.Character, e AI, n string, h int, a int) {
-	setUpEnemies(e, n, h, a)
-	e.battle(p)
+	Enemy := &e
+	Enemy.initEnemy(n, h, a)
+	Enemy.battle(p)
+}
+
+func spell(sn string, pr *int) int {
+	switch sn{
+	case "Test":
+		if *pr >= 10 {
+			*pr -= 10
+			return 20
+		}
+	case "ULTIMATE":
+		if *pr >= 20 {
+			*pr -= 20
+			return 80
+		}
+	}
+	return -1
 }
 
 func (e *AI) battle(p *player.Character) {
+	fmt.Println(e)
+	p.PR = 0
 	for true {
-		playerTurn := bubble.StartChoice([]string{"Attaquer.", "Défendre."}, true)
+		playerTurn := bubble.StartChoice([]string{"Attaquer.","Spécial.", "Défendre."}, true)
 		plrDefTurn := 0
 		switch playerTurn{
 		case 0: //Le joueur attaque
 		e.pv -= p.ATK
-		case 1: //Le joueur se défend
+		case 1: //Le joueur fait une attaque spéciale
+			specials := []string{"Retour.", "Test", "ULTIMATE"}
+			s := bubble.StartChoice(specials,false)
+			if specials[s] == "Retour." {
+				continue
+			} else {
+				spelldmg := spell(specials[s], &p.PR)
+				if spelldmg < 0 {
+					continue
+				}
+				e.pv -= spelldmg
+			}
+		case 2: //Le joueur se défend
 			plrDefTurn = p.DEF
-		case 2: //Le joueur accède à l'inventaire
+			p.PR = p.DEF * 3
+		case 3: //Le joueur accède à l'inventaire
 			
 		}
 
@@ -54,7 +86,15 @@ func (e *AI) battle(p *player.Character) {
 		
 		fmt.Println(e.pv, e.atk, plrDefTurn, p.PV)
 
-		if p.PV <= 0 || e.pv <= 0 {
+		if p.PV <= 0 {
+			common.DisplayNarration("Le combat est perdu...")
+			if lives <= 0 {
+				src.Startmenu()
+			}
+			lives--
+			return
+		} else if e.pv <= 0 {
+			common.DisplayNarration("Le combat est gagné.")
 			return
 		}
 	}
