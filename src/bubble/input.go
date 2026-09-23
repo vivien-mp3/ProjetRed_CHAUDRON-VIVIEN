@@ -44,12 +44,7 @@ func (m nameInput) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "enter", "ctrl+c", "esc":
 			m.quitting = true
 			return m, tea.Quit
-		case "backspace":
-			playerInput = playerInput[:len(playerInput)-1]
-		default:
-			playerInput += msg.String()
 		}
-
 	}
 
 	m.textInput, cmd = m.textInput.Update(msg)
@@ -74,12 +69,16 @@ func (m nameInput) View() tea.View {
 }
 
 func StartInput(s string) string {
-	mess = ""
 	mess = s
+	playerInput = ""
 
 	p := tea.NewProgram(initInput())
-	if _, err := p.Run(); err != nil {
+	finalModel, err := p.Run()
+	if err != nil {
 		log.Fatal(err)
+	}
+	if m, ok := finalModel.(nameInput); ok {
+		playerInput = m.textInput.Value()
 	}
 	return playerInput
 }

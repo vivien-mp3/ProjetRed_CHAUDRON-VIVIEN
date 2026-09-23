@@ -5,7 +5,7 @@ import (
 	"projet/src"
 	"projet/src/battle"
 	"projet/src/common"
-	"projet/src/economie"
+	//"projet/src/economie"
 	"projet/src/player"
 	chrfol "projet/src/player"
 	"time"
@@ -45,6 +45,6 @@ func main() {
 	common.DisplayNarration(mess)
 	src.Carte(&plr)
 	// Rencontre avec le Marchand
-	economie.Boutique(&plr)
-	player.AccesInventory()
+	//economie.Boutique(&plr)
+	//player.AccesInventory()
 }
