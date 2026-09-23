@@ -72,8 +72,8 @@ func EnterName() string {
 		if VerifName(NomSaisi) {
 			runes := []rune(NomSaisi)
 			ValideNom := string(runes[0]) + strings.ToLower(string(runes[1:]))
-			NomSaisi = ValideNom
-			return ValideNom
+			NomSaisivalide := strings.Title(ValideNom)
+			return NomSaisivalide
 		}
 	}
 }
@@ -87,14 +87,9 @@ func VerifName(s string) bool {
 	// Bloque les caractères spéciaux, chiffres et espaces (seules les lettres sont autorisées)
 	for _, a := range runes {
 		if !unicode.IsLetter(a) {
-			fmt.Println("\nErreur : Le nom ne doit pas contenir de caractères spéciaux ou de chiffres.")
+			fmt.Println("\nErreur de Saisi. Le nom ne doit pas contenir de caractères spéciaux ou de chiffres.")
 			return false
 		}
-	}
-	// Oblige à mettre une majuscule au tout début
-	if !unicode.IsUpper(runes[0]) {
-		fmt.Println("\nErreur : Le nom doit obligatoirement commencer par une majuscule.")
-		return false
 	}
 	return true
 }
