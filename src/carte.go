@@ -63,7 +63,7 @@ func Cartegauche(p *player.Character) {
 		fmt.Println("Vous rentrez dans l'auberge est vous appercevez un Barman")
 		fmt.Println("\033[0m")
 
-		case 1 :
+	case 1 :
 			fmt.Println("\033[1;35m")
 			fmt.Println("Quittez le village et explorer les environ malgrés les environ obscur")
 			fmt.Println("\033[0m")
