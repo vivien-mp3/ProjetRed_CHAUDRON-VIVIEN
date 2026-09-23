@@ -43,7 +43,8 @@ func main() {
 	time.Sleep(1 * time.Second)
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
-	//src.Carte(&plr)
+	src.Carte(&plr)
 	// Rencontre avec le Marchand
-	//economie.Boutique(&plr)
+	economie.Boutique(&plr)
+	player.AccesInventory()
 }
