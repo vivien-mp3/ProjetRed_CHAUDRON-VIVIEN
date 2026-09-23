@@ -34,3 +34,13 @@ func DisplayInfo(name string, t string, pvmax int, pv int, atk int, def int, Mon
 	fmt.Println("[{(=======================================)}]")
 	fmt.Printf("\t MONNAIE: %d\t \n", Monnaie)
 }
+
+func DisplayBattle(tour int, ename string, epv int, epvmax int, pname string, ppv int, ppvmax int, ppr int, pprmax int) {
+	fmt.Printf("[{(======================)}][ TOUR %d ][{(======================)}]\n", tour)
+	fmt.Printf("\t%s | POINTS DE VIE: %d / %d |\n", pname, ppv, ppvmax)
+	fmt.Printf("\t| POINTS DE RÊVES: %d / %d |\n", ppr, pprmax)
+	fmt.Printf("[{(=============================================================)}]")
+	fmt.Printf("\t%s | POINTS DE VIE: %d / %d |\n", ename, epv, epvmax)
+	fmt.Printf("\t%s se bat encore, continue de te battre.")
+	fmt.Printf("[{(=============================================================)}]")
+}

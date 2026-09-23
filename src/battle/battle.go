@@ -55,6 +55,7 @@ func spell(sn string, pr *int) int {
 func (e *AI) battle(p *player.Character) {
 	fmt.Println(e)
 	p.PR = 0
+	tour := 1
 	for true {
 		playerTurn := bubble.StartChoice([]string{"Attaquer.","Spécial.", "Défendre."}, true)
 		plrDefTurn := 0
@@ -62,7 +63,8 @@ func (e *AI) battle(p *player.Character) {
 		case 0: //Le joueur attaque
 		e.pv -= p.ATK
 		case 1: //Le joueur fait une attaque spéciale
-			specials := []string{"Retour.", "Test", "ULTIMATE"}
+			fmt.Printf("\n\tVous avez: %d / %d\n", p.PR, p.PRMAX)
+			specials := []string{"Retour.", "Test - 10PR", "ULTIMATE - 20PR"}
 			s := bubble.StartChoice(specials,false)
 			if specials[s] == "Retour." {
 				continue
@@ -75,7 +77,7 @@ func (e *AI) battle(p *player.Character) {
 			}
 		case 2: //Le joueur se défend
 			plrDefTurn = p.DEF
-			p.PR = p.DEF * 3
+			p.PR += p.DEF * 3
 		case 3: //Le joueur accède à l'inventaire
 			
 		}
@@ -85,6 +87,8 @@ func (e *AI) battle(p *player.Character) {
 		}
 		
 		fmt.Println(e.pv, e.atk, plrDefTurn, p.PV)
+		common.DisplayBattle(tour,e.name, e.pv, e.pvmax, p.NAME, p.PV, p.PVMAX, p.PR, p.PRMAX)
+		
 
 		if p.PV <= 0 {
 			common.DisplayNarration("Le combat est perdu...")
@@ -97,5 +101,6 @@ func (e *AI) battle(p *player.Character) {
 			common.DisplayNarration("Le combat est gagné.")
 			return
 		}
+		tour++
 	}
 }
