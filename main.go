@@ -5,6 +5,7 @@ import (
 	"projet/src"
 	"projet/src/battle"
 	"projet/src/common"
+	"projet/src/economie"
 	"projet/src/player"
 	chrfol "projet/src/player"
 	"time"
@@ -43,4 +44,6 @@ func main() {
 	mess := "Un vent froid coule sur votre peau.\n\tVous vous sentez bizarre, le front chaud, mais le corps froid.\n\tCela semble comme un cauchemard."
 	common.DisplayNarration(mess)
 	//src.Carte(&plr)
+	// Rencontre avec le Marchand
+	//economie.Boutique(&plr)
 }
