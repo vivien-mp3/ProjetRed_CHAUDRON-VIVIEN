@@ -23,7 +23,6 @@ func main() {
 	player.AddInventory("couteau")
 	player.AddInventory("épée")
 	player.AccesInventory()
-	player.AccesInventory()
 	plrName := chrfol.EnterName()
 	plrType := chrfol.EnterType()
 
