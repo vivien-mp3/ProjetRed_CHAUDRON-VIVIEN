@@ -5,6 +5,8 @@ import (
 	"projet/src"
 	"projet/src/battle"
 	"projet/src/common"
+	"projet/src/economie"
+
 	//"projet/src/economie"
 	"projet/src/player"
 	chrfol "projet/src/player"
@@ -19,16 +21,17 @@ func main() {
 	//permet initialiser le menu
 	src.Startmenu()
 	//requete pour le personnage
-	player.AddInventory("épée")
-	player.AddInventory("couteau")
-	player.AddInventory("épée")
-	player.AccesInventory()
 	plrName := chrfol.EnterName()
 	plrType := chrfol.EnterType()
 
 	//information sur le personnage
 	var plr chrfol.Character
 	plr.InitCharacter(plrName, plrType)
+
+	//player.AddInventory("épée")
+	//player.AddInventory("couteau")
+	//player.AddInventory("épée")
+	//player.AccesInventory()
 
 	var dummy battle.AI
 	battle.StartBattle(&plr, dummy, "dummy", 100, 10)
@@ -44,6 +47,6 @@ func main() {
 	common.DisplayNarration(mess)
 	src.Carte(&plr)
 	// Rencontre avec le Marchand
-	//economie.Boutique(&plr)
-	//player.AccesInventory()
+	economie.Boutique(&plr)
+	player.AccesInventory()
 }

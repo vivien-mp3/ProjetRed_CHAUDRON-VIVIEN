@@ -14,7 +14,7 @@ var INV = make(map[string]int)
 var temp []string
 
 func AccesInventory() {
-	for true {
+for true {
 		for key, value := range INV {
 			ItemPro = key + " x" + strconv.Itoa(value)
 			temp = append(temp, key)
@@ -37,8 +37,20 @@ func AccesInventory() {
 	}
 }
 
+// Ceci est la variable avec le nombre d'item dans l'inventaire
+var NbItemInv int = 0
+var LIMITINV int = 10
+
 func AddInventory(objet string) {
-	INV[objet]++
+	if NbItemInv < LIMITINV {
+		INV[objet]++
+		NbItemInv += 1
+		if NbItemInv == LIMITINV {
+			fmt.Println("Vous venez d'atteindre le maximum de votre inventaire")
+		}
+	} else {
+		fmt.Println("Limite d'inventaire atteint vous ne pouvez pas ajouter d'item")
+	}
 }
 
 func SupInventory(objet string) {
@@ -46,4 +58,5 @@ func SupInventory(objet string) {
 	if INV[objet] == 0 {
 		delete(INV, objet)
 	}
+	NbItemInv -= 1
 }
