@@ -14,7 +14,7 @@ var INV = make(map[string]int)
 var temp []string
 
 func AccesInventory() {
-for true {
+	for true {
 		for key, value := range INV {
 			ItemPro = key + " x" + strconv.Itoa(value)
 			temp = append(temp, key)
@@ -59,4 +59,8 @@ func SupInventory(objet string) {
 		delete(INV, objet)
 	}
 	NbItemInv -= 1
+}
+
+func UpTailleInv() {
+	LIMITINV += 10
 }

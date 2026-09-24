@@ -25,3 +25,10 @@ var Pizza = Item{
 	Soin:        0,
 	Degats:      25,
 }
+
+// Variable permettant de créer le Sac à Dos (+10 taille inventaire)
+var Sac = Item{
+	Nom:         "Sac à Dos",
+	Prix:        30,
+	Description: "Augmente de 10 la taille de l'inventaire",
+}

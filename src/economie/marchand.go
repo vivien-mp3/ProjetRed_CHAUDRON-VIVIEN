@@ -7,11 +7,12 @@ import (
 	"projet/src/player"
 )
 
-var stockJus = 2
-var stockPizza = 2
+var stockSacADos = 3
 
 // Func permetant la création d'une boutique ( Marchand )
 func Boutique(p *player.Character) {
+	var stockJus = 2
+	var stockPizza = 2
 	dansBoutique := true
 	for dansBoutique {
 		fmt.Println("Bienvenue jeune Inconnu, voici ma boutique. Que voulez-vous acheter ?")
@@ -26,16 +27,21 @@ func Boutique(p *player.Character) {
 		if stockPizza == 0 {
 			textePizza = "Pizza à l'ananas [ÉPUISÉ]"
 		}
+		//permet d'afficher le stock de jus d'ananas
+		texteSac := fmt.Sprintf("Sac à Dos (x%d) - 30 écus", stockSacADos)
+		if stockSacADos == 0 {
+			texteSac = "Sac à Dos [ÉPUISÉ]"
+		}
 
-		options := []string{texteJus, textePizza, "Quitter la boutique"}
+		options := []string{texteJus, textePizza, texteSac, "Quitter la boutique"}
 		choix := bubble.StartChoice(options, false)
-		// permet la possibilité d'interagire et payer avec la monnaie 
+		// permet la possibilité d'interagire et payer avec la monnaie
 		switch choix {
 		case 0:
 			if stockJus > 0 {
-			if p.MONNAIE >= item.Jus.Prix {
-				RetraitMonnaie(p, item.Jus.Prix)
-				player.AddInventory(item.Jus.Nom)
+				if p.MONNAIE >= item.Jus.Prix {
+					RetraitMonnaie(p, item.Jus.Prix)
+					player.AddInventory(item.Jus.Nom)
 					stockJus--
 					fmt.Println("Vous avez acheté un", item.Jus.Nom, "(Reste en stock :", stockJus, ")")
 				} else {
@@ -47,9 +53,9 @@ func Boutique(p *player.Character) {
 
 		case 1:
 			if stockPizza > 0 {
-			if p.MONNAIE >= item.Pizza.Prix {
-				RetraitMonnaie(p, item.Pizza.Prix)
-				player.AddInventory(item.Pizza.Nom)
+				if p.MONNAIE >= item.Pizza.Prix {
+					RetraitMonnaie(p, item.Pizza.Prix)
+					player.AddInventory(item.Pizza.Nom)
 					stockPizza--
 					fmt.Println("Vous avez acheté une", item.Pizza.Nom, "(Reste en stock :", stockPizza, ")")
 				} else {
@@ -59,9 +65,23 @@ func Boutique(p *player.Character) {
 				fmt.Println("Rupture de stock ! Il n'y a plus de Pizza à l'ananas.")
 			}
 
-			case 2:
-				fmt.Println("Merci de votre visite !")
-				dansBoutique = false
+		case 2:
+			if stockSacADos > 0 {
+				if p.MONNAIE >= item.Sac.Prix {
+					RetraitMonnaie(p, item.Sac.Prix)
+					player.UpTailleInv()
+					stockSacADos--
+					fmt.Println("Vous avez acheté un", item.Sac.Nom, "(Reste en stock :", stockSacADos, ")")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'argent !")
+				}
+			} else {
+				fmt.Println("Rupture de stock ! Il n'y a plus de Sac à Dos.")
 			}
+
+		case 3:
+			fmt.Println("Merci de votre visite !")
+			dansBoutique = false
 		}
+	}
 }
