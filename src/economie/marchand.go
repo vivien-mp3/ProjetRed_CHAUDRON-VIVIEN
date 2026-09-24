@@ -13,6 +13,9 @@ var stockSacADos = 3
 func Boutique(p *player.Character) {
 	var stockJus = 2
 	var stockPizza = 2
+	var stockGriffe = 2
+	var stockMoteur = 2
+	var stockSoie = 2
 	dansBoutique := true
 	for dansBoutique {
 		fmt.Println("Bienvenue jeune Inconnu, voici ma boutique. Que voulez-vous acheter ?")
@@ -27,13 +30,28 @@ func Boutique(p *player.Character) {
 		if stockPizza == 0 {
 			textePizza = "Pizza à l'ananas [ÉPUISÉ]"
 		}
-		//permet d'afficher le stock de jus d'ananas
+		//permet d'afficher le stock de sac à dos
 		texteSac := fmt.Sprintf("Sac à Dos (x%d) - 30 écus", stockSacADos)
 		if stockSacADos == 0 {
 			texteSac = "Sac à Dos [ÉPUISÉ]"
 		}
+		//permet d'afficher le stock de moteur
+		texteMoteur := fmt.Sprintf("Moteur (x%d) - 10 écus", stockMoteur)
+		if stockMoteur == 0 {
+			texteMoteur = "Moteur [ÉPUISÉ]"
+		}
+		//permet d'afficher le stock de griffe de griffon
+		texteGriffe := fmt.Sprintf("Griffe de Griffon (x%d) - 10 écus", stockGriffe)
+		if stockGriffe == 0 {
+			texteGriffe = "Griffe de griffon [ÉPUISÉ]"
+		}
+		//permet d'afficher le stock de soie
+		texteSoie := fmt.Sprintf("Soie de Bombyx (x%d) - 10 écus", stockSoie)
+		if stockSoie == 0 {
+			texteSoie = "Soie de Bombyx [ÉPUISÉ]"
+		}
 
-		options := []string{texteJus, textePizza, texteSac, "Quitter la boutique"}
+		options := []string{texteJus, textePizza, texteSac, texteMoteur, texteGriffe, texteSoie, "Quitter la boutique"}
 		choix := bubble.StartChoice(options, false)
 		// permet la possibilité d'interagire et payer avec la monnaie
 		switch choix {
@@ -80,6 +98,48 @@ func Boutique(p *player.Character) {
 			}
 
 		case 3:
+			if stockMoteur > 0 {
+				if p.MONNAIE >= item.Moteur.Prix {
+					RetraitMonnaie(p, item.Moteur.Prix)
+					player.AddInventory(item.Moteur.Nom)
+					stockMoteur--
+					fmt.Println("Vous avez acheté un", item.Moteur.Nom, "(Reste en stock :", stockMoteur, ")")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'argent !")
+				}
+			} else {
+				fmt.Println("Rupture de stock ! Il n'y a plus de Moteur.")
+			}
+
+		case 4:
+			if stockGriffe > 0 {
+				if p.MONNAIE >= item.Griffe.Prix {
+					RetraitMonnaie(p, item.Griffe.Prix)
+					player.AddInventory(item.Griffe.Nom)
+					stockGriffe--
+					fmt.Println("Vous avez acheté un", item.Griffe.Nom, "(Reste en stock :", stockGriffe, ")")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'argent !")
+				}
+			} else {
+				fmt.Println("Rupture de stock ! Il n'y a plus de Griffe de griffon.")
+			}
+
+		case 5:
+			if stockSoie > 0 {
+				if p.MONNAIE >= item.Soie.Prix {
+					RetraitMonnaie(p, item.Soie.Prix)
+					player.AddInventory(item.Soie.Nom)
+					stockSoie--
+					fmt.Println("Vous avez acheté un", item.Soie.Nom, "(Reste en stock :", stockSoie, ")")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'argent !")
+				}
+			} else {
+				fmt.Println("Rupture de stock ! Il n'y a plus de Soie de Bombyx.")
+			}
+
+		case 6:
 			fmt.Println("Merci de votre visite !")
 			dansBoutique = false
 		}

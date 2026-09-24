@@ -32,3 +32,21 @@ var Sac = Item{
 	Prix:        30,
 	Description: "Augmente de 5 la taille de l'inventaire",
 }
+
+var Moteur = Item{
+	Nom: "Moteur",
+	Prix: 10,
+	Description: "Item à Trade pour craft stuff",
+}
+
+var Griffe = Item{
+	Nom: "Griffe de Griffon",
+	Prix: 10,
+	Description: "Item à Trade pour craft stuff",
+}
+
+var Soie = Item{
+	Nom: "Soie de Bombyx",
+	Prix: 10,
+	Description: "Item à Trade pour craft stuff",
+}
