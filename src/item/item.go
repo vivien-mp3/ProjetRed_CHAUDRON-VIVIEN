@@ -30,5 +30,5 @@ var Pizza = Item{
 var Sac = Item{
 	Nom:         "Sac à Dos",
 	Prix:        30,
-	Description: "Augmente de 10 la taille de l'inventaire",
+	Description: "Augmente de 5 la taille de l'inventaire",
 }

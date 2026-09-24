@@ -62,5 +62,5 @@ func SupInventory(objet string) {
 }
 
 func UpTailleInv() {
-	LIMITINV += 10
+	LIMITINV += 5
 }
