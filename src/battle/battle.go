@@ -5,7 +5,6 @@ import (
 	"projet/src"
 	"projet/src/bubble"
 	"projet/src/common"
-	"projet/src/item"
 	"projet/src/player"
 )
 
@@ -37,11 +36,11 @@ func StartBattle(p *player.Character, e AI, n string, h int, a int) {
 }
 
 func spell(sn string, p *player.Character) int {
-	switch sn{
+	switch sn {
 	case "Charge. [8 PR]":
 		if p.PR >= 8 {
 			p.PR -= 8
-			return p.ATK + (p.ATK/2)
+			return p.ATK + (p.ATK / 2)
 		}
 	case "Papier tranchant. [10 PR]":
 		if p.PR >= 10 {
@@ -52,10 +51,12 @@ func spell(sn string, p *player.Character) int {
 		if p.PR >= 16 {
 			p.PR -= 16
 			p.PV += p.ATK
-			if p.PV > p.PVMAX { p.PV = p.PVMAX } 
+			if p.PV > p.PVMAX {
+				p.PV = p.PVMAX
+			}
 			return p.ATK * 2
 		}
-		case "Triangle de lumière. [32 PR]":
+	case "Triangle de lumière. [32 PR]":
 		if p.PR >= 16 {
 			p.PR -= 16
 			return 65
@@ -78,7 +79,7 @@ func (e *AI) battle(p *player.Character) {
 			fmt.Printf("\n\tVous avez: %d / %d\n", p.PR, p.PRMAX)
 			specials := p.SPELLS
 			specials = append(specials, "Retour.")
-			s := bubble.StartChoice(specials,false)
+			s := bubble.StartChoice(specials, false)
 			if specials[s] == "Retour." {
 				continue
 			} else {
@@ -94,43 +95,7 @@ func (e *AI) battle(p *player.Character) {
 			plrDefTurn = p.DEF
 			p.PR += p.DEF * 3
 		case 3: //Le joueur accède à l'inventaire
-			if len(player.INV) == 0 {
-				fmt.Println("\nVotre inventaire est vide !")
-				continue
-			}
-			invOptions := []string{"Retour."}
-			var itemKeys []string
-			for k, v := range player.INV {
-				invOptions = append(invOptions, fmt.Sprintf("%s (x%d)", k, v))
-				itemKeys = append(itemKeys, k)
-			}
-			choixInv := bubble.StartChoice(invOptions, false)
-			if choixInv == 0 {
-				continue
-			}
-			nomItem := itemKeys[choixInv-1]
-			switch nomItem {
-			case item.Jus.Nom:
-				p.PV += item.Jus.Soin
-				if p.PV > p.PVMAX {
-					p.PV = p.PVMAX
-				}
-				player.SupInventory(nomItem)
-				fmt.Printf("\nVous buvez un %s. Vous récupérez +%d PV ! (PV : %d/%d)\n", nomItem, item.Jus.Soin, p.PV, p.PVMAX)
-			case item.Pizza.Nom:
-				e.pv -= item.Pizza.Degats
-				player.SupInventory(nomItem)
-				fmt.Printf("\nVous lancez une %s sur %s ! Il subit %d dégâts ! (PV restant : %d/%d)\n", nomItem, e.name, item.Pizza.Degats, e.pv, e.pvmax)
-			default:
-				fmt.Printf("\nVous ne pouvez pas utiliser %s en combat !\n", nomItem)
-				continue
-			}
-		}
 
-		if e.pv <= 0 {
-			common.DisplayBattle(tour, e.name, e.pv, e.pvmax, p.NAME, p.PV, p.PVMAX, p.PR, p.PRMAX)
-			common.DisplayNarration("Le combat est gagné.")
-			return
 		}
 
 		if (e.atk - p.DEF) > 0 {

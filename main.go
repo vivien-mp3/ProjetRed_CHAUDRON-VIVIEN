@@ -5,8 +5,6 @@ import (
 	"projet/src"
 	"projet/src/battle"
 	"projet/src/common"
-	"projet/src/economie"
-
 	//"projet/src/economie"
 	"projet/src/player"
 	chrfol "projet/src/player"
