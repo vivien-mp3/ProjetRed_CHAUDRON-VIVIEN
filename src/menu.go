@@ -13,9 +13,14 @@ func Startmenu() {
 
 	for result := true; result; {
 		fmt.Println("\033[1;35m")
-		fmt.Println("╔══════════════════════════════╗")
-		fmt.Println("║         Projet Rêve          ║")
-		fmt.Println("╚══════════════════════════════╝")
+		fmt.Println(`
+	 ____             _      _     ____    __                
+	|  _ \ _ __ ___  (_) ___| |_  |  _ \  /_/__   _____  
+	| |_) | '__/ _ \ | |/ _ \ __| | |_) |/ _ \ \ / / _ \  
+	|  __/| | | (_) || |  __/ |_  |  _ <|  __/\ V /  __/  
+	|_|   |_|  \___/_/ |\___|\__| |_| \_\\___| \_/ \___|  
+	               |__/                                    
+	`)
 		fmt.Println("\033[0m")
 		fmt.Println("Bienvenue dans le jeu!")
 		options := []string{"Commencer une nouvelle partie", "Parametre", "Quitter le jeu"}
