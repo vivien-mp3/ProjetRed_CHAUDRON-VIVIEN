@@ -58,6 +58,31 @@ func (a *Character) InitCharacter(name string, types int) {
 	}
 }
 
+// Permet au joueur d'utiliser un objet de son inventaire (ex: Jus d'ananas pour +20 PV)
+func (a *Character) UseItem(itemName string) bool {
+	if INV[itemName] <= 0 {
+		fmt.Printf("\nVous ne possédez pas de %s dans votre inventaire !\n", itemName)
+		return false
+	}
+	switch itemName {
+	case "Jus d'ananas":
+		soin := 20
+		a.PV += soin
+		if a.PV > a.PVMAX {
+			a.PV = a.PVMAX
+		}
+		SupInventory(itemName)
+		fmt.Printf("\nVous buvez un %s. Vous récupérez +%d PV ! (PV : %d/%d)\n", itemName, soin, a.PV, a.PVMAX)
+		return true
+	case "Pizza à l'ananas":
+		fmt.Println("\nLa Pizza à l'ananas doit être utilisée en combat pour attaquer l'adversaire !")
+		return false
+	default:
+		fmt.Printf("\nL'objet %s ne peut pas être utilisé ainsi.\n", itemName)
+		return false
+	}
+}
+
 // définition des variable qui possèderont les infos a saisir
 var TypeSaisi int = 0
 var NomSaisi string
