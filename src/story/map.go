@@ -1,11 +1,15 @@
 package story
 
 import (
+	"projet/src/battle"
 	"projet/src/bubble"
 	"projet/src/common"
+	"projet/src/player"
 )
+var plr *player.Character
 
-func BeginAdventure() {
+func BeginAdventure(p *player.Character) {
+	plr = p
 
 	l1 := "Après que la machine s'est rappelé de vôtre nom. Elle s'en vient à s'écraser, le vaisseau en miettes...\n"
 	l2 := "Mais, tout vas bien, enfin, vous vous sentiez mal, comme si vous étiez à moitié vivant. Vous regardez les environs et...\n"
@@ -24,8 +28,8 @@ func BeginAdventure() {
 		common.DisplayNarration("Le ciel... Pourquoi ? Tu es cloué sur place. Tu peux rêver de t'envoler, mais cette planète sera ta tombe.\n Même si.\n en regardant de plus près, le ciel est brisé. Des fissures recouvre le ciel.\n Dans ses fissures, de petites coccinelles charbonne pour recoudre le ciel.\n Tu passes de longues minutes à regarder le ciel, les coccinelles ont du mal à y arriver. Elle ne font aucun progrès.")	
 		forest_lake()
 	}
-
 }
+
 
 /*
 	LA FORET AU COULEUR CHAUDE.
@@ -34,6 +38,8 @@ func BeginAdventure() {
 
 func forest_lake() {
 	common.DisplayNarration("Bizarre, Vous descendez les yeux et cette forêt est très orange. Les arbres jaune avec un dégradé orange, le feuilles rouge.\n Vous remarquez l'herbe, jaune vif à vos pieds, dégradant à l'orange quelques mètres plus loin puis au rouge à l'horizon.\n Vous vous retournez pour regagner le vaisseau, espérant que le panel de contrôle marche toujours.\n Hélas pour vous, derrière vous se trouvait un lac, de l'eau violette,\n contrastant à la nature rouge, au ciel couleur pomme et aux fissures roses...")
+	var dummy battle.AI
+	battle.StartBattle(plr, dummy, "dummy", 100, 10)
 }
 
 func forest_cat_place() {
@@ -41,4 +47,6 @@ func forest_cat_place() {
 	common.DisplayDialogue("chat", "Ce chat.", "Miaou miaou miaou miaou.")
 	common.DisplayNarration("Bizarre... ce chat essaye de parler avec vous ? Vous marcher vers lui.")
 }
+
+
 
