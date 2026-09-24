@@ -10,17 +10,18 @@ import (
 var stockJus = 2
 var stockPizza = 2
 
+// Func permetant la création d'une boutique ( Marchand )
 func Boutique(p *player.Character) {
 	dansBoutique := true
 	for dansBoutique {
 		fmt.Println("Bienvenue jeune Inconnu, voici ma boutique. Que voulez-vous acheter ?")
 		fmt.Println("Joueur :", p.NAME, "| Monnaie :", p.MONNAIE)
-
+		//permet d'afficher le stock de jus d'ananas
 		texteJus := fmt.Sprintf("Jus d'ananas (x%d) - 15 écus", stockJus)
 		if stockJus == 0 {
 			texteJus = "Jus d'ananas [ÉPUISÉ]"
 		}
-
+		//permet d'afficher le stock de la pizza d'ananas
 		textePizza := fmt.Sprintf("Pizza à l'ananas (x%d) - 15 écus", stockPizza)
 		if stockPizza == 0 {
 			textePizza = "Pizza à l'ananas [ÉPUISÉ]"
@@ -28,7 +29,7 @@ func Boutique(p *player.Character) {
 
 		options := []string{texteJus, textePizza, "Quitter la boutique"}
 		choix := bubble.StartChoice(options, false)
-
+		// permet la possibilité d'interagire et payer avec la monnaie 
 		switch choix {
 		case 0:
 			if stockJus > 0 {
