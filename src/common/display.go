@@ -27,11 +27,11 @@ func DisplayNarration(m string){
 func DisplayInfo(name string, t string, pvmax int, pv int, atk int, def int, Monnaie int) {
 	fmt.Println("[{(______________________________________________________________________________________)}]")
 	fmt.Printf("\t NOM DU JOUEUR: %s\n\tTYPE DU JOUEUR: %s\n", name, t)
-	fmt.Println("[{(=======================================)}]")
+	fmt.Printf("[{(=======================================)}]\n")
 	fmt.Printf("\t POINTS DE VIES: %d / %d\n", pv, pvmax)
-	fmt.Println("[{(=======================================)}]")
+	fmt.Printf("[{(=======================================)}]\n")
 	fmt.Printf("\t POINTS D'ATTAQUE: %d\t POINT DE DEFENSE: %d\n", atk, def)
-	fmt.Println("[{(=======================================)}]")
+	fmt.Printf("[{(=======================================)}]\n")
 	fmt.Printf("\t MONNAIE: %d\t \n", Monnaie)
 }
 
@@ -39,8 +39,8 @@ func DisplayBattle(tour int, ename string, epv int, epvmax int, pname string, pp
 	fmt.Printf("[{(======================)}][ TOUR %d ][{(======================)}]\n", tour)
 	fmt.Printf("\t%s | POINTS DE VIE: %d / %d |\n", pname, ppv, ppvmax)
 	fmt.Printf("\t| POINTS DE RÊVES: %d / %d |\n", ppr, pprmax)
-	fmt.Printf("[{(=============================================================)}]")
+	fmt.Printf("[{(=============================================================)}]\n")
 	fmt.Printf("\t%s | POINTS DE VIE: %d / %d |\n", ename, epv, epvmax)
-	fmt.Printf("\t%s se bat encore, continue de te battre.")
-	fmt.Printf("[{(=============================================================)}]")
+	fmt.Printf("\t%s se bat encore, continue de te battre.\n", ename)
+	fmt.Printf("[{(=============================================================)}]\n")
 }
