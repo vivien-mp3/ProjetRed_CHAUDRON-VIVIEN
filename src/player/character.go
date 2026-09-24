@@ -19,7 +19,14 @@ type Character struct {
 	PRMAX   int
 	PR      int
 	INV     map[string]int
+	SPELLS []string
 	MONNAIE int
+}
+
+type Equipment struct {
+	helmet string
+	chestplace string
+	boots string
 }
 
 // défini les stats du personnage correspondant au personnage choisi, choix possible avec le nom ou le numéro du personnage
@@ -31,28 +38,31 @@ func (a *Character) InitCharacter(name string, types int) {
 		a.PVMAX = 100
 		a.PV = a.PVMAX / 2
 		a.ATK = 10
-		a.DEF = 2
+		a.DEF = 3
 		a.PRMAX = 100
 		a.PR = 0
 		a.MONNAIE = 100
+		a.SPELLS = []string{"Charge"}
 	case 1:
 		a.TYPE = "chartaceus"
 		a.PVMAX = 90
 		a.PV = a.PVMAX / 2
 		a.ATK = 12
-		a.DEF = 1
+		a.DEF = 2
 		a.PRMAX = 150
 		a.PR = 0
 		a.MONNAIE = 100
+		a.SPELLS = []string{"Papier tranchant."}
 	case 2:
 		a.TYPE = "plantyrien"
 		a.PVMAX = 120
 		a.PV = a.PVMAX / 2
 		a.ATK = 8
-		a.DEF = 3
-		a.PRMAX = 50
+		a.DEF = 5
+		a.PRMAX = 75
 		a.PR = 0
 		a.MONNAIE = 100
+		a.SPELLS = []string{"Vampirisme."}
 	default:
 		fmt.Println("\nErreur de saisi pour le Type de personnage, veuillez saisir le numéro du Type de personnage ou sont nom complet sans erreur de frappe")
 	}
