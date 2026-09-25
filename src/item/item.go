@@ -1,52 +1,73 @@
 package item
 
+import (
+	"fmt"
+	"projet/src/player"
+)
+
 type Item struct {
-	Nom         string
-	Prix        int // Monnaie item
-	Description string
-	Soin        int // PV rendus au joueur
-	Degats      int // Dégâts infligés à l'adversaire
+	Name  string
+	Price int // Monnaie item
+	Heal  int // PV rendus au joueur
+	Dmg   int // Dégâts infligés à l'adversaire
 }
 
-// Variable permettant de créer le Jus d'ananas (+20 PV)
-var Jus = Item{
-	Nom:         "Jus d'ananas",
-	Prix:        15,
-	Description: "Permet de rajouter + 20 PV",
-	Soin:        20,
-	Degats:      0,
-}
-
-// Variable permettant de créer la Pizza à l'ananas (-25 PV adversaire)
-var Pizza = Item{
-	Nom:         "Pizza à l'ananas",
-	Prix:        15,
-	Description: "retire -25 PV à son adversaire",
-	Soin:        0,
-	Degats:      25,
+var JusDeBanane = Item{
+	Name:  "Jus de Banane",
+	Price: 15,
+	Heal:  20,
+	Dmg:   0,
 }
 
 // Variable permettant de créer le Sac à Dos (+10 taille inventaire)
 var Sac = Item{
-	Nom:         "Sac à Dos",
-	Prix:        30,
-	Description: "Augmente de 5 la taille de l'inventaire",
+	Name:  "Sac à Dos",
+	Price: 30,
 }
 
 var Moteur = Item{
-	Nom: "Moteur",
-	Prix: 10,
-	Description: "Item à Trade pour craft stuff",
+	Name:  "Moteur",
+	Price: 10,
 }
 
 var Griffe = Item{
-	Nom: "Griffe de Griffon",
-	Prix: 10,
-	Description: "Item à Trade pour craft stuff",
+	Name:  "Griffe de Griffon",
+	Price: 10,
 }
 
 var Soie = Item{
-	Nom: "Soie de Bombyx",
-	Prix: 10,
-	Description: "Item à Trade pour craft stuff",
+	Name:  "Soie de Bombyx",
+	Price: 10,
 }
+
+func UseItem(obj string, INV *[]player.Inventory, plr *player.Character) {
+	for _, it := range *INV {
+		fmt.Println(obj, it)
+		if it.Name == obj {
+			if it.Quantity > 0 {
+				it.Quantity -= 1
+				switch it.Name {
+				case "Jus de banane":
+					plr.PV += JusDeBanane.Heal
+					if plr.PV > plr.PVMAX {
+						plr.PV = plr.PVMAX
+					}
+				case "Pizza a l'ananas":
+					
+				default:
+					fmt.Printf("|%s ne peut pas être utilisé.\n", it.Name)
+					return
+				}
+			}
+		}
+	}
+}
+
+//Fonction useHeal inutilisable.
+/* func useHeal(heal int, plr player.Character) int {
+	newHP := plr.PV + heal
+	if newHP > plr.PVMAX {
+		newHP = plr.PVMAX
+	}
+	return newHP
+} */

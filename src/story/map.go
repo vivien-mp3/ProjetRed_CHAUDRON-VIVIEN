@@ -46,6 +46,8 @@ func forest_cat_place() {
 	common.DisplayNarration("Vous êtes arrivé à la fin de ces empreintes.\n Mais, à vôtre surprise, un couloir, les arbres oranges aux feuilles rouges crée ce couloir.\n Et puis, ce chat. Il sort des arbres et s'assoit à quelques mètres de vous.")
 	common.DisplayDialogue("chat", "Ce chat.", "Miaou miaou miaou miaou.")
 	common.DisplayNarration("Bizarre... ce chat essaye de parler avec vous ? Vous marcher vers lui.")
+	common.DisplayDialogue("chat", "Ce chat.", "Miaou miaou, miaou miaou miaou miaou!")
+	common.DisplayNarration("Ce chat vous donne un objet, un jus de banane..? Ce jus de banane à l'air d'être une source pour vous guérir")
 }
 
 

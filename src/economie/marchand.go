@@ -1,4 +1,4 @@
-package economie
+/* package economie
 
 import (
 	"fmt"
@@ -57,11 +57,11 @@ func Boutique(p *player.Character) {
 		switch choix {
 		case 0:
 			if stockJus > 0 {
-				if p.MONNAIE >= item.Jus.Prix {
-					RetraitMonnaie(p, item.Jus.Prix)
-					player.AddInventory(item.Jus.Nom)
+				if p.MONNAIE >= item.JusDeBanane.price {
+					RetraitMonnaie(p, item.JusDeBanane.price)
+					player.AddInventory(item.JusDeBanane.name)
 					stockJus--
-					fmt.Println("Vous avez acheté un", item.Jus.Nom, "(Reste en stock :", stockJus, ")")
+					fmt.Println("Vous avez acheté un", item.JusDeBanane.name, "(Reste en stock :", stockJus, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -145,3 +145,5 @@ func Boutique(p *player.Character) {
 		}
 	}
 }
+ */
+ 

@@ -23,7 +23,7 @@ type nameInput struct {
 
 func initInput() nameInput {
 	ti := textinput.New()
-	ti.Placeholder = "Fever"
+	ti.Placeholder = ""
 	ti.Focus()
 	ti.CharLimit = 16
 
