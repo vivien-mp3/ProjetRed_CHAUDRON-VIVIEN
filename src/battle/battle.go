@@ -95,7 +95,7 @@ func (e *AI) battle(p *player.Character) {
 			plrDefTurn = p.DEF
 			p.PR += p.DEF * 3
 		case 3: //Le joueur accède à l'inventaire
-
+			player.AccesInventory(&p.INV)
 		}
 
 		if (e.atk - p.DEF) > 0 {

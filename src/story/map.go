@@ -48,6 +48,7 @@ func forest_cat_place() {
 	common.DisplayNarration("Bizarre... ce chat essaye de parler avec vous ? Vous marcher vers lui.")
 	common.DisplayDialogue("chat", "Ce chat.", "Miaou miaou, miaou miaou miaou miaou!")
 	common.DisplayNarration("Ce chat vous donne un objet, un jus de banane..? Ce jus de banane à l'air d'être une source pour vous guérir")
+	player.AddInventory("Jus de banane", 1, &plr.INV)
 }
 
 

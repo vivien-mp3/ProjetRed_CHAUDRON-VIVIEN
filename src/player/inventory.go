@@ -67,12 +67,12 @@ func AddInventory(obj string, objqt int, INV *[]Inventory) {
 }
 
 func SupInventory(obj string, objqt int, INV *[]Inventory) {
+	var tempoINV []Inventory 
 	for _, item := range *INV {
 		if strings.EqualFold(obj, item.Name) {
 			if item.Quantity > objqt {
 				item.Quantity =- objqt
 			} else {
-				var tempoINV []Inventory 
 				if !strings.EqualFold(obj, item.Name) {
 					tempoINV = append(tempoINV, item)
 				}

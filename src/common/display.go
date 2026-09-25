@@ -9,6 +9,7 @@ var icons = map[string]string{
 	"?": "�",
 	"chat": "ᓚᘏᗢ", 
 	"joueur": "𐀪",
+	"robot": "𖠌",
 }
 
 
