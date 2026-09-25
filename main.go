@@ -1,16 +1,9 @@
 package main
 
 import (
-	//"fmt"
 	"projet/src"
-
-	//"projet/src/battle"
 	"projet/src/common"
 	"projet/src/story"
-
-	//"projet/src/economie"
-
-	"projet/src/economie"
 	"projet/src/player"
 	"time"
 )
