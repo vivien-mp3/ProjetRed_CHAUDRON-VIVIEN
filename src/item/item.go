@@ -12,6 +12,12 @@ type Item struct {
 	Dmg   int // Dégâts infligés à l'adversaire
 }
 
+type Stuff struct {
+	Name    string
+	Price   []string // Liste item de craft
+	BoostPV int      // Augmentation des PV
+}
+
 var JusDeBanane = Item{
 	Name:  "Jus de Banane",
 	Price: 15,
@@ -45,6 +51,24 @@ var Griffe = Item{
 var Soie = Item{
 	Name:  "Soie de Bombyx",
 	Price: 10,
+}
+
+var Helmet = Stuff{
+	Name:    "Helmet",
+	Price:   []string{"Griffe de Griffon", "Soie de Bombyx"},
+	BoostPV: 15,
+}
+
+var Chesplate = Stuff{
+	Name:    "Chesplate",
+	Price:   []string{"Moteur", "Soie de Bombyx"},
+	BoostPV: 20,
+}
+
+var Boots = Stuff{
+	Name:    "Boots",
+	Price:   []string{"Moteur", "Griffe de Griffon"},
+	BoostPV: 10,
 }
 
 func UseItem(obj string, INV *[]player.Inventory, plr *player.Character) {
