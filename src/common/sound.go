@@ -15,6 +15,7 @@ var (
 	initOnce  sync.Once
 	initErr   error
 	speakerSR beep.SampleRate
+	lastsound string
 )
 
 func play(path string) {
@@ -55,7 +56,10 @@ func play(path string) {
 }
 
 func PlaySound(s string) {
-	play("./assets/music/" + s + ".mp3")
+	if lastsound != s {
+		StopAllSounds()
+		go play("./assets/music/" + s + ".mp3")
+	}
 }
 
 func PlaySFX(s string) {

@@ -29,10 +29,17 @@ func (e *AI) initEnemy(n string, h int, a int) {
 	e.atk = a
 }
 
-func StartBattle(p *player.Character, e AI, n string, h int, a int) {
+func StartBattle(p *player.Character, e AI, n string, h int, a int) bool {
+	if n == "Le chat" {
+		common.PlaySound("cattheme")
+	} else {
+		common.PlaySound("battletheme")
+	}
+
 	Enemy := &e
 	Enemy.initEnemy(n, h, a)
-	Enemy.battle(p)
+	win := Enemy.battle(p)
+	return win
 }
 
 func spell(sn string, p *player.Character) int {
@@ -65,7 +72,7 @@ func spell(sn string, p *player.Character) int {
 	return -1
 }
 
-func (e *AI) battle(p *player.Character) {
+func (e *AI) battle(p *player.Character) bool {
 	fmt.Println(e)
 	p.PR = 100
 	tour := 1
@@ -107,16 +114,17 @@ func (e *AI) battle(p *player.Character) {
 
 		if p.PV <= 0 {
 			common.DisplayNarration("Le combat est perdu...")
-			if lives <= 0 {
+			if lives <= 0 || e.name != "Le chat" {
 				common.DisplayNarration("Dans ce monde irréel, vous êtes succombé à ce douloureux combat. Vous vous ne réveillez plus jamais.")
 				src.Startmenu()
 			}
 			lives--
-			return
+			return false
 		} else if e.pv <= 0 {
 			common.DisplayNarration("Le combat est gagné.")
-			return
+			return true
 		}
 		tour++
 	}
+	return false
 }

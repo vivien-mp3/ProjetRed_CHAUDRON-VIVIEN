@@ -5,17 +5,19 @@ import (
 	"fmt"
 	"os"
 	"projet/src/bubble"
+	"projet/src/common"
 )
 
 func Startmenu() {
+	common.PlaySound("deepspace")
 	//code permetant d'arriver sur le jeu .
 	var choice int
 
 	for result := true; result; {
 		fmt.Println("\033[1;35m")
 		fmt.Println(`
-	 ____             _      _     ____    __                
-	|  _ \ _ __ ___  (_) ___| |_  |  _ \  /_/__   _____  
+	 ____             _      _     ____    ___               
+	|  _ \ _ __ ___  (_) ___| |_  |  _ \  /_/_\   _____  
 	| |_) | '__/ _ \ | |/ _ \ __| | |_) |/ _ \ \ / / _ \  
 	|  __/| | | (_) || |  __/ |_  |  _ <|  __/\ V /  __/  
 	|_|   |_|  \___/_/ |\___|\__| |_| \_\\___| \_/ \___|  
