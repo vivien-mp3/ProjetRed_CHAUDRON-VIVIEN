@@ -206,6 +206,7 @@ func auberge() {
 				economie.Boutique(plr)
 			case 3:
 				common.DisplayNarration("Vous quittez l'auberge, vous entendez le barman commencer à pleurer de voir un client partir.. Cela vous fait de la peine mais bon.")
+				town_entrance()
 			case 4:
 				player.AccesInventory(&plr.INV)
 				continue
