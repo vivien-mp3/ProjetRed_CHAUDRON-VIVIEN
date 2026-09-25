@@ -19,6 +19,13 @@ var JusDeBanane = Item{
 	Dmg:   0,
 }
 
+var Pizza = Item{
+	Name:  "Pizza à l'ananas",
+	Price: 15,
+	Heal:  0,
+	Dmg:   10,
+}
+
 // Variable permettant de créer le Sac à Dos (+10 taille inventaire)
 var Sac = Item{
 	Name:  "Sac à Dos",
@@ -53,7 +60,7 @@ func UseItem(obj string, INV *[]player.Inventory, plr *player.Character) {
 						plr.PV = plr.PVMAX
 					}
 				case "Pizza a l'ananas":
-					
+
 				default:
 					fmt.Printf("|%s ne peut pas être utilisé.\n", it.Name)
 					return
