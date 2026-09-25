@@ -108,8 +108,6 @@ func (e *AI) battle(p *player.Character) bool {
 		if (e.atk - p.DEF) > 0 {
 			p.PV -= e.atk - plrDefTurn
 		}
-
-		fmt.Println(e.pv, e.atk, plrDefTurn, p.PV)
 		common.DisplayBattle(tour, e.name, e.pv, e.pvmax, p.NAME, p.PV, p.PVMAX, p.PR, p.PRMAX)
 
 		if p.PV <= 0 {

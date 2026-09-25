@@ -217,13 +217,21 @@ func treecat() {
 	common.DisplayDialogue("cat", "Ce chat", "Miaou, miaou miaou miaou !")
 	common.DisplayNarration("Vous revoyez ce chat, il semble vous apprécier, ces pupilles sont dilatés, que c'est mignon.\n Mais.\nVous vous rappelé que les chat dilates leur yeux quand ils voient une proie.")
 	var cat battle.AI
-	if battle.StartBattle(plr, cat, "Le chat", 999, 35) {
+	win := battle.StartBattle(plr, cat, "Le chat", 999, 35)
+	if win {
 		common.DisplayNarration("Tu as... survécu..? La pauvre bête est par terre, immobile.. Tu n'as aucun remord, enfin, c'est que tu te dis. Mais au fond de toi, t'aurais aimé que ce chat gagne.")
 		common.DisplayDialogue("joueur", plr.NAME, "gg ez")
+		credit()
+		return
 	} else {
 		common.DisplayNarration("C'était à prévoir... Bravo, vous êtes à terre, le chat à gagné.")
-		
+		credit()
+		return
 	}
+	
+}
+
+func credit() {
 	common.DisplayTitle()
 	fmt.Printf("\nUn jeu fait par:\n\t- RACHETER Lioris\n\t- JULIEN Mathieu\n\t- CHAUDRON Vivien")
 
