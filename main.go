@@ -10,7 +10,7 @@ import (
 
 	//"projet/src/economie"
 
-	//"projet/src/economie"
+	"projet/src/economie"
 	"projet/src/player"
 	"time"
 )

@@ -1,4 +1,4 @@
-/* package economie
+package economie
 
 import (
 	"fmt"
@@ -57,11 +57,11 @@ func Boutique(p *player.Character) {
 		switch choix {
 		case 0:
 			if stockJus > 0 {
-				if p.MONNAIE >= item.JusDeBanane.price {
-					RetraitMonnaie(p, item.JusDeBanane.price)
-					player.AddInventory(item.JusDeBanane.name)
+				if p.MONNAIE >= item.JusDeBanane.Price {
+					RetraitMonnaie(p, item.JusDeBanane.Price)
+					player.AddInventory(item.JusDeBanane.Name, 1, &p.INV)
 					stockJus--
-					fmt.Println("Vous avez acheté un", item.JusDeBanane.name, "(Reste en stock :", stockJus, ")")
+					fmt.Println("Vous avez acheté un", item.JusDeBanane.Name, "(Reste en stock :", stockJus, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -71,11 +71,11 @@ func Boutique(p *player.Character) {
 
 		case 1:
 			if stockPizza > 0 {
-				if p.MONNAIE >= item.Pizza.Prix {
-					RetraitMonnaie(p, item.Pizza.Prix)
-					player.AddInventory(item.Pizza.Nom)
+				if p.MONNAIE >= item.Pizza.Price {
+					RetraitMonnaie(p, item.Pizza.Price)
+					player.AddInventory(item.Pizza.Name, 1, &p.INV)
 					stockPizza--
-					fmt.Println("Vous avez acheté une", item.Pizza.Nom, "(Reste en stock :", stockPizza, ")")
+					fmt.Println("Vous avez acheté une", item.Pizza.Name, "(Reste en stock :", stockPizza, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -85,11 +85,11 @@ func Boutique(p *player.Character) {
 
 		case 2:
 			if stockSacADos > 0 {
-				if p.MONNAIE >= item.Sac.Prix {
-					RetraitMonnaie(p, item.Sac.Prix)
+				if p.MONNAIE >= item.Sac.Price {
+					RetraitMonnaie(p, item.Sac.Price)
 					player.UpTailleInv()
 					stockSacADos--
-					fmt.Println("Vous avez acheté un", item.Sac.Nom, "(Reste en stock :", stockSacADos, ")")
+					fmt.Println("Vous avez acheté un", item.Sac.Name, "(Reste en stock :", stockSacADos, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -99,11 +99,11 @@ func Boutique(p *player.Character) {
 
 		case 3:
 			if stockMoteur > 0 {
-				if p.MONNAIE >= item.Moteur.Prix {
-					RetraitMonnaie(p, item.Moteur.Prix)
-					player.AddInventory(item.Moteur.Nom)
+				if p.MONNAIE >= item.Moteur.Price {
+					RetraitMonnaie(p, item.Moteur.Price)
+					player.AddInventory(item.Moteur.Name, 1, &p.INV)
 					stockMoteur--
-					fmt.Println("Vous avez acheté un", item.Moteur.Nom, "(Reste en stock :", stockMoteur, ")")
+					fmt.Println("Vous avez acheté un", item.Moteur.Name, "(Reste en stock :", stockMoteur, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -113,11 +113,11 @@ func Boutique(p *player.Character) {
 
 		case 4:
 			if stockGriffe > 0 {
-				if p.MONNAIE >= item.Griffe.Prix {
-					RetraitMonnaie(p, item.Griffe.Prix)
-					player.AddInventory(item.Griffe.Nom)
+				if p.MONNAIE >= item.Griffe.Price {
+					RetraitMonnaie(p, item.Griffe.Price)
+					player.AddInventory(item.Griffe.Name, 1, &p.INV)
 					stockGriffe--
-					fmt.Println("Vous avez acheté un", item.Griffe.Nom, "(Reste en stock :", stockGriffe, ")")
+					fmt.Println("Vous avez acheté un", item.Griffe.Name, "(Reste en stock :", stockGriffe, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -127,11 +127,11 @@ func Boutique(p *player.Character) {
 
 		case 5:
 			if stockSoie > 0 {
-				if p.MONNAIE >= item.Soie.Prix {
-					RetraitMonnaie(p, item.Soie.Prix)
-					player.AddInventory(item.Soie.Nom)
+				if p.MONNAIE >= item.Soie.Price {
+					RetraitMonnaie(p, item.Soie.Price)
+					player.AddInventory(item.Soie.Name, 1, &p.INV)
 					stockSoie--
-					fmt.Println("Vous avez acheté un", item.Soie.Nom, "(Reste en stock :", stockSoie, ")")
+					fmt.Println("Vous avez acheté un", item.Soie.Name, "(Reste en stock :", stockSoie, ")")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'argent !")
 				}
@@ -145,5 +145,3 @@ func Boutique(p *player.Character) {
 		}
 	}
 }
- */
- 
