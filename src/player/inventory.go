@@ -19,6 +19,8 @@ var temp []string
 
 func AccesInventory(INV *[]Inventory) {
 	for true {
+		ListInv = nil
+		temp = nil
 		for _, it := range *INV {
 			ItemPro = it.Name + " x" + strconv.Itoa(it.Quantity)
 			temp = append(temp, it.Name)
@@ -36,8 +38,6 @@ func AccesInventory(INV *[]Inventory) {
 				SupInventory(objet, 1, INV)
 			}
 		}
-		ListInv = nil
-		temp = nil
 	}
 }
 

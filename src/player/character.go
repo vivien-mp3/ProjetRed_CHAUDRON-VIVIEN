@@ -77,7 +77,7 @@ func (a *Character) InitCharacter(name string, types int) {
 // définition des variable qui possèderont les infos a saisir
 var TypeSaisi int = 0
 var NomSaisi string
-var statplr Character
+var Statplr Character
 
 func EnterName() string {
 	NomSaisi = ""
