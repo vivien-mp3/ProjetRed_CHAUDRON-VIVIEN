@@ -3,6 +3,7 @@ package player
 import (
 	"fmt"
 	"projet/src/bubble"
+
 	//"projet/src/item"
 	"strconv"
 	"strings"
@@ -12,7 +13,8 @@ import (
 
 var ListInv []string
 var ItemPro string
-//var INV = make(map[string]int)
+
+// var INV = make(map[string]int)
 var temp []string
 
 func AccesInventory(INV *[]Inventory) {
@@ -31,7 +33,7 @@ func AccesInventory(INV *[]Inventory) {
 		for a := 0; a < len(ListInv); a++ {
 			if selec == a {
 				objet := temp[a]
-				SupInventory(objet, len(ListInv), INV)
+				SupInventory(objet, 1, INV)
 			}
 		}
 		ListInv = nil
@@ -67,22 +69,20 @@ func AddInventory(obj string, objqt int, INV *[]Inventory) {
 }
 
 func SupInventory(obj string, objqt int, INV *[]Inventory) {
-	var tempoINV []Inventory 
+	var tempoINV []Inventory
 	for _, item := range *INV {
 		if strings.EqualFold(obj, item.Name) {
 			if item.Quantity > objqt {
-				item.Quantity =- objqt
-			} else {
-				if !strings.EqualFold(obj, item.Name) {
-					tempoINV = append(tempoINV, item)
-				}
-				*INV = tempoINV
+				item.Quantity -= objqt
+				tempoINV = append(tempoINV, item)
 			}
+		} else {
+			tempoINV = append(tempoINV, item)
 		}
 	}
+	*INV = tempoINV
 }
 
 func UpTailleInv() {
 	LIMITINV += 5
 }
-
